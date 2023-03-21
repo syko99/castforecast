@@ -1,9 +1,11 @@
+import WeatherAPI from "./modules/weatherAPI";
+WeatherAPI.getForecast()
 
 function App() {
   return (
-    <div>
+    <main className="flex-grow">
 
-    </div>
+    </main>
   );
 }
 

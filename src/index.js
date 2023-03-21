@@ -1,13 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import Header from "./components/layout/header";
+import Footer from "./components/layout/footer";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <div className="flex flex-col bg-gray-200 mx-auto h-screen dark:bg-gray-800">
+      <Header />
+        <App />
+      <Footer />
+    </div>
   </React.StrictMode>
 );
 
