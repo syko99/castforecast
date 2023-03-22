@@ -29,8 +29,6 @@ const WeatherAPI = (() => {
         } catch (error) {
             console.error(error);
         }
-
-        console.log(weekdays[7].getCurrentTemp());
     }
 
     return {
