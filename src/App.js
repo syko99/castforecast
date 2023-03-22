@@ -1,4 +1,5 @@
 import WeatherAPI from "./modules/weatherAPI";
+
 WeatherAPI.getForecast()
 
 function App() {
