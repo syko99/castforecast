@@ -1,19 +1,26 @@
 /**
+ * Represents a week of days
  * 
- * @param {Array} weekDayArray - from WeatherAPI module, an array of @var {Day}
- * @returns functions to manipulate days
+ * @typedef {Object} Week - holds an array containing Days
+ * @typedef {Object} Day - {@link ./day.js}
  */
 
-const Week = (weekDayArray) => {
-    days = []
+const Week = () => {
+    let days = []
+
+    function addDay(Day) {
+        days.push(Day)
+    }
 
     function getDays() {
         return days
     }
 
-    return {
-        getDays
-    };
-};
+    function getDay(index) {
+        return days[index]
+    }
 
-export default Week;
+    return { addDay, getDays, getDay }
+}
+
+export default Week
