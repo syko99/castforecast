@@ -26,7 +26,7 @@ const ForecastWeek = ({forecast}) => {
     })
 
     return (
-        <div className='w-full max-w-sm p-4 flex flex-col gap-2 justify-start capitalize rounded-lg bg-white shadow-md'>
+        <div className='w-full max-w-sm p-4 flex flex-col gap-2 justify-start capitalize rounded-lg bg-white/50 backdrop-blur-lg shadow-md'>
             {dayComponents}
         </div>
     )

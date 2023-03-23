@@ -18,7 +18,7 @@ const ForecastToday = ({forecast}) => {
     })
 
     return (
-        <ul className='w-full max-w-sm p-4 flex gap-4 rounded-lg bg-white backdrop-blur-lg shadow-md overflow-x-auto'>
+        <ul className='w-full max-w-sm p-4 flex gap-4 rounded-lg bg-white/50 backdrop-blur-lg shadow-md overflow-x-auto'>
             {hourComponents}
         </ul>
     )

@@ -6,7 +6,7 @@ const ForecastNow = ({ forecast }) => {
     let minTemp = Math.round(forecast.getMinTemp())
 
     return (
-        <div className='p-4 flex flex-col justify-start capitalize rounded-lg bg-white shadow-md'>
+        <div className='p-4 flex flex-col justify-start capitalize rounded-lg'>
             <p className='text-6xl'>{temp}&deg;</p>
             <p className='mb-4'>cloudy</p>
             <p>City Name</p>

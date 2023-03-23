@@ -10,7 +10,7 @@ import Footer from "./components/layout/footer";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <div className="flex flex-col bg-gray-200 mx-auto h-screen dark:bg-gray-800">
+    <div className="flex flex-col bg-sky-100 mx-auto h-screen dark:bg-gray-800">
       <Header />
         <App />
       <Footer />
