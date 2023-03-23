@@ -1,23 +1,19 @@
+import { useState } from 'react'
 import ForecastHour from './forecast_hour'
 
-let hourlyForecast = []
-
-function populateHourlyForecast(Day) {
-
-}
 
 const ForecastToday = ({forecast}) => {
 
-    console.log(forecast);
+    const [hourlyForecast] = useState(forecast.getHourlyForecast())
 
     const hourComponents = hourlyForecast.map((hour) => {
         return (
             <ForecastHour
-                time={hour.time}
+                hour={hour.hour}
                 temp={hour.temp}
                 wind={hour.wind}
                 precip={hour.precip}
-                key={hour.time}
+                key={hour.hour}
             />
         )
     })
