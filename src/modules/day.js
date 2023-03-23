@@ -60,8 +60,24 @@ const Day = (forecast) => {
         return winds
     }
 
+    function getWindAvg() {
+        let windAvg = 0;
+        for (let speed of winds) {
+            windAvg += speed
+        }
+        return (windAvg / winds.length)
+    }
+
     function getPrecips() {
         return precips
+    }
+
+    function getPrecipAvg() {
+        let precipAvg = 0;
+        for (let chance of precips) {
+            precipAvg += chance
+        }
+        return (precipAvg / precips.length)
     }
 
     return {
@@ -71,7 +87,9 @@ const Day = (forecast) => {
         getHours,
         getTemps,
         getWinds,
+        getWindAvg,
         getPrecips,
+        getPrecipAvg,
         getMaxTemp,
         getMinTemp,
     }

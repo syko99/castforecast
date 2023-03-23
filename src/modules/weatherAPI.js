@@ -35,8 +35,8 @@ const WeatherAPI = (() => {
                 dailyForecast.data.temps = responseTemps.slice(i * 24, i * 24 + 24)
                 dailyForecast.data.winds = responseWinds.slice(i * 24, i * 24 + 24)
                 dailyForecast.data.precips = responsePrecips.slice(i * 24, i * 24 + 24)
-                dailyForecast.data.maxTemp = responseMaxTemp.slice(i, 1)
-                dailyForecast.data.minTemp = responseMinTemp.slice(i, 1)
+                dailyForecast.data.maxTemp = responseMaxTemp.slice(i, i+1)
+                dailyForecast.data.minTemp = responseMinTemp.slice(i, i+1)
                 week.addDay(Day(dailyForecast))
             }
         } catch (error) {
