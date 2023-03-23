@@ -30,9 +30,9 @@ function App() {
 
     return (
         <div id='colorTheme' className={lightMode == true ? '' : 'dark'}>
-            <div className='flex flex-col bg-sky-100 mx-auto h-screen dark:bg-slate-800'>
+            <div className='flex flex-col bg-slate-200 mx-auto h-screen dark:bg-slate-800'>
                 <Header toggleLightMode={toggleLightMode} />
-                <main className='flex-grow p-2'>
+                <main className='flex-grow p-2 max-w-screen-xl mx-auto'>
                     {typeof forecast != 'undefined' ? (
                         <div className='grid gap-2'>
                             <ForecastNow forecast={forecast.getDay(0)} />

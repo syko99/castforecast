@@ -9,14 +9,14 @@ const Header = ({toggleLightMode}) => {
 
     return (
         <header>
-            <nav className='flex flex-col items-center max-w-screen-xl mx-auto sm:flex-row sm:justify-between 2xl:px-0 sm:py-2 sm:px-12'>
+            <nav className='flex flex-col items-center max-w-screen-xl mx-auto md:flex-row md:justify-between 2xl:px-0 md:px-12'>
                 <button id='logo' className='flex items-center self-start my-4 mx-4' role='link'>
                     <span className='text-2xl text-emerald-600 font-bold dark:text-slate-300 dark:font-medium'>castforecast</span>
                 </button>
                 <button
                     onClick={toggleMobileMenu}
                     id='navMenuBtn'
-                    className='absolute right-6 top-5 sm:hidden'>
+                    className='absolute right-6 top-5 md:hidden'>
                     <svg
                         xmlns='http://www.w3.org/2000/svg'
                         fill='none'
@@ -35,12 +35,12 @@ const Header = ({toggleLightMode}) => {
                     id='navMenu'
                     className={
                         `${mobileMenuActive == true ? ' ' : ' hidden '}` +
-                        'flex flex-col w-11/12 mb-4 rounded-md bg-white shadow-md sm:font-medium sm:flex sm:flex-row sm:p-0 sm:w-auto sm:bg-transparent sm:shadow-none dark:bg-gray-500 dark:sm:bg-transparent'
+                        'flex flex-col w-11/12 mb-4 rounded-md bg-white shadow-md my-auto md:font-medium md:flex md:flex-row md:p-0 md:w-auto md:bg-transparent md:shadow-none dark:bg-gray-500 dark:md:bg-transparent'
                     }>
                     <li className='w-full'>
                         <button
                             id='homeLink'
-                            className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 sm:hover:backdrop-brightness-100 sm:hover:text-emerald-600 dark:text-slate-200 dark:hover:backdrop-brightness-110 dark:sm:hover:backdrop-brightness-100'
+                            className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 md:hover:backdrop-brightness-100 md:hover:text-emerald-600 dark:text-slate-200 dark:hover:backdrop-brightness-110 dark:md:hover:backdrop-brightness-100'
                             role='link'>
                             Home
                         </button>
@@ -48,7 +48,7 @@ const Header = ({toggleLightMode}) => {
                     <li className='w-full'>
                         <button
                             id='demoLink'
-                            className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 sm:hover:backdrop-brightness-100 sm:hover:text-emerald-600 dark:text-slate-200 dark:hover:backdrop-brightness-110 dark:sm:hover:backdrop-brightness-100'
+                            className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 md:hover:backdrop-brightness-100 md:hover:text-emerald-600 dark:text-slate-200 dark:hover:backdrop-brightness-110 dark:md:hover:backdrop-brightness-100'
                             role='link'>
                             weather
                         </button>
@@ -58,13 +58,13 @@ const Header = ({toggleLightMode}) => {
                             onClick={toggleLightMode}
                             type='button'
                             id='themeBtn'
-                            className='w-full px-4 py-2 hover:backdrop-brightness-95 sm:hover:backdrop-brightness-100 dark:hover:backdrop-brightness-110 dark:sm:hover:backdrop-brightness-100 group'>
+                            className='w-full px-4 py-2 hover:backdrop-brightness-95 md:hover:backdrop-brightness-100 dark:hover:backdrop-brightness-110 dark:md:hover:backdrop-brightness-100 group'>
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
                                 fill='none'
                                 viewBox='0 0 24 24'
                                 strokeWidth='1.5'
-                                className='w-6 h-6 stroke-black dark:stroke-slate-200 sm:group-hover:stroke-emerald-600'>
+                                className='w-6 h-6 stroke-black dark:stroke-slate-200 md:group-hover:stroke-emerald-600'>
                                 <title>light screen theme</title>
                                 <path
                                     strokeLinecap='round'
