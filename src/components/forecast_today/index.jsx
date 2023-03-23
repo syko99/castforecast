@@ -22,7 +22,8 @@ const ForecastToday = ({ forecastToday, forecastTmrw }) => {
     })
 
     return (
-        <ul className='w-full p-4 flex gap-6 rounded-lg bg-white/75 backdrop-blur-lg shadow-md overflow-x-auto dark:bg-white/10 dark:text-slate-300'>
+        <ul className='w-full p-4 flex gap-6 rounded-lg bg-white/75 backdrop-blur-lg shadow-md overflow-x-auto
+         md:p-0 md:gap-3 md:bg-transparent md:shadow-none md:col-span-3 dark:bg-white/10 dark:text-slate-300 dark:md:bg-transparent'>
             {hourComponents}
         </ul>
     )
