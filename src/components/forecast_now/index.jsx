@@ -1,6 +1,6 @@
 const ForecastNow = () => {
     return (
-        <div className='p-4 flex flex-col justify-start capitalize rounded-lg bg-white'>
+        <div className='p-4 flex flex-col justify-start capitalize rounded-lg bg-white shadow-md'>
             <p className='text-7xl'>37&deg;</p>
             <p className='mb-4'>cloudy</p>
             <p>City Name</p>

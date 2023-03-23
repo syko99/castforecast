@@ -41,7 +41,7 @@ const Header = () => {
                     id='navMenu'
                     className={
                         `${mobileMenuActive == true ? ' ' : ' hidden '}` +
-                        'flex flex-col w-11/12 mb-4 rounded-md bg-white shadow-lg sm:font-medium sm:flex sm:flex-row sm:p-0 sm:w-auto sm:bg-transparent sm:shadow-none dark:bg-gray-500 dark:sm:bg-transparent'
+                        'flex flex-col w-11/12 mb-4 rounded-md bg-white shadow-md sm:font-medium sm:flex sm:flex-row sm:p-0 sm:w-auto sm:bg-transparent sm:shadow-none dark:bg-gray-500 dark:sm:bg-transparent'
                     }>
                     <li className='w-full'>
                         <button
