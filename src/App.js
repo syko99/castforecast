@@ -20,7 +20,6 @@ function App() {
         }
         getForecast()
     }, [])
-
     return (
         <main className='flex-grow p-2'>
             {typeof forecast != 'undefined' ? (

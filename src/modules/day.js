@@ -11,6 +11,8 @@ const Day = (forecast) => {
     let temps = forecast.data.temps
     let winds = forecast.data.winds
     let precips = forecast.data.precips //precipitation chance %
+    let maxTemp = forecast.data.maxTemp
+    let minTemp = forecast.data.minTemp
 
     function getHourlyForecast() {
         let hourlyForecast = []
@@ -32,6 +34,14 @@ const Day = (forecast) => {
     function getCurrentTemp() {
         let currentHour = new Date().getHours()
         return temps[currentHour]
+    }
+
+    function getMaxTemp() {
+        return maxTemp
+    }
+
+    function getMinTemp() {
+        return minTemp
     }
 
     function getDate() {
@@ -62,6 +72,8 @@ const Day = (forecast) => {
         getTemps,
         getWinds,
         getPrecips,
+        getMaxTemp,
+        getMinTemp,
     }
 }
 

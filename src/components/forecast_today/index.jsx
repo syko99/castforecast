@@ -3,7 +3,6 @@ import ForecastHour from './forecast_hour'
 
 
 const ForecastToday = ({forecast}) => {
-
     const [hourlyForecast] = useState(forecast.getHourlyForecast())
 
     const hourComponents = hourlyForecast.map((hour) => {

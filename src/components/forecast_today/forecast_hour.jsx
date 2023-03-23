@@ -2,7 +2,7 @@ import TimeConverter from '../../modules/time_converter'
 
 const ForecastHour = ({ hour, temp, wind, precip }) => {
     hour = TimeConverter.standardTimeStr(hour)
-
+    temp = Math.round(temp)
     return (
         <li className='flex flex-col items-center'>
             <p className='text-sm mb-2'>{hour}</p>
