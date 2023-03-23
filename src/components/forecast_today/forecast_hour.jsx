@@ -1,7 +1,6 @@
 import TimeConverter from '../../modules/time_converter'
 
 const ForecastHour = ({ hour, temp, wind, precip }) => {
-    let currentHour = new Date().getHours()
     hour = TimeConverter.standardTimeStr(hour)
 
     return (

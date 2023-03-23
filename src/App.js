@@ -25,7 +25,7 @@ function App() {
         <main className='flex-grow p-2'>
             {typeof forecast != 'undefined' ? (
                 <div className='grid gap-4'>
-                    <ForecastNow forecast={forecast} />
+                    <ForecastNow forecast={forecast.getDay(0)} />
                     <ForecastToday forecast={forecast.getDay(0)} />
                     <ForecastWeek forecast={forecast} />{' '}
                 </div>
