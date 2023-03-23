@@ -36,7 +36,10 @@ function App() {
                     {typeof forecast != 'undefined' ? (
                         <div className='grid gap-2'>
                             <ForecastNow forecast={forecast.getDay(0)} />
-                            <ForecastToday forecast={forecast.getDay(0)} />
+                            <ForecastToday
+                                forecastToday={forecast.getDay(0)}
+                                forecastTmrw={forecast.getDay(1)}
+                            />
                             <ForecastWeek forecast={forecast} />{' '}
                         </div>
                     ) : (

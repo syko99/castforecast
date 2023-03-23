@@ -2,8 +2,10 @@ import { useState } from 'react'
 import ForecastHour from './forecast_hour'
 
 
-const ForecastToday = ({forecast}) => {
-    const [hourlyForecast] = useState(forecast.getHourlyForecast())
+const ForecastToday = ({forecastToday, forecastTmrw}) => {
+    let currentHour = new Date().getHours()
+    let forecast = forecastToday.getHourlyForecast().slice(currentHour).concat(forecastTmrw.getHourlyForecast().slice(0, currentHour))
+    const [hourlyForecast] = useState(forecast)
 
     const hourComponents = hourlyForecast.map((hour) => {
         return (
