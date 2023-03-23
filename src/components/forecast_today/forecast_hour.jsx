@@ -1,14 +1,21 @@
 import TimeConverter from '../../modules/time_converter'
+import raindropIMG from '../../assets/images/raindrop.svg'
 
 const ForecastHour = ({ hour, temp, wind, precip }) => {
     hour = TimeConverter.standardTimeStr(hour)
     temp = Math.round(temp)
+    wind = Math.round(wind)
     return (
-        <li className='flex flex-col items-center'>
-            <p className='text-sm mb-2'>{hour}</p>
-            <p className='text-3xl'>{temp}&deg;</p>
-            <p className='text-base'>{wind}mph</p>
-            <p className='text-sm mt-2'>{precip}%</p>
+        <li className='flex flex-col items-center text-sm'>
+            <p className='mb-2'>{hour}</p>
+            <p className='text-2xl relative'>{temp}<span className='absolute'>&deg;</span></p>
+            <p>{wind}mph</p>
+            <p className='mt-2 flex justify-center items-center'>
+                <span className='w-3 aspect-square'>
+                    <img src={raindropIMG} alt='raindrop' />
+                </span>
+                {precip}%
+            </p>
         </li>
     )
 }
