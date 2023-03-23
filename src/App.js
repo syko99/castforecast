@@ -1,6 +1,8 @@
 import WeatherAPI from './modules/weatherAPI'
 
 //components
+import Header from './components/layout/header'
+import Footer from './components/layout/footer'
 import ForecastNow from './components/forecast_now'
 import ForecastToday from './components/forecast_today'
 import ForecastWeek from './components/forecast_week'
@@ -8,6 +10,11 @@ import { useEffect, useState } from 'react'
 
 function App() {
     const [forecast, setForecast] = useState()
+    const [lightMode, setLightMode] = useState(true)
+
+    function toggleLightMode() {
+        lightMode == true ? setLightMode(false) : setLightMode(true)
+    }
 
     useEffect(() => {
         async function getForecast() {
@@ -20,18 +27,25 @@ function App() {
         }
         getForecast()
     }, [])
+
     return (
-        <main className='flex-grow p-2'>
-            {typeof forecast != 'undefined' ? (
-                <div className='grid gap-2'>
-                    <ForecastNow forecast={forecast.getDay(0)} />
-                    <ForecastToday forecast={forecast.getDay(0)} />
-                    <ForecastWeek forecast={forecast} />{' '}
-                </div>
-            ) : (
-                ''
-            )}
-        </main>
+        <div id='colorTheme' className={lightMode == true ? '' : 'dark'}>
+            <div className='flex flex-col bg-sky-100 mx-auto h-screen dark:bg-slate-800'>
+                <Header toggleLightMode={toggleLightMode} />
+                <main className='flex-grow p-2'>
+                    {typeof forecast != 'undefined' ? (
+                        <div className='grid gap-2'>
+                            <ForecastNow forecast={forecast.getDay(0)} />
+                            <ForecastToday forecast={forecast.getDay(0)} />
+                            <ForecastWeek forecast={forecast} />{' '}
+                        </div>
+                    ) : (
+                        ''
+                    )}
+                </main>
+                <Footer />
+            </div>
+        </div>
     )
 }
 

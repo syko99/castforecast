@@ -1,23 +1,17 @@
-import { useRef, useState } from 'react';
+import { useRef, useState } from 'react'
 
-const Header = () => {
-    const [mobileMenuActive, setMobileMenuActive] = useState(false);
+const Header = ({toggleLightMode}) => {
+    const [mobileMenuActive, setMobileMenuActive] = useState(false)
+
     function toggleMobileMenu() {
-        mobileMenuActive == true
-            ? setMobileMenuActive(false)
-            : setMobileMenuActive(true);
+        mobileMenuActive == true ? setMobileMenuActive(false) : setMobileMenuActive(true)
     }
 
     return (
         <header>
             <nav className='flex flex-col items-center max-w-screen-xl mx-auto sm:flex-row sm:justify-between 2xl:px-0 sm:py-2 sm:px-12'>
-                <button
-                    id='logo'
-                    className='flex items-center self-start my-4 mx-4'
-                    role='link'>
-                    <span className='text-2xl text-emerald-600 font-bold'>
-                        castforecast
-                    </span>
+                <button id='logo' className='flex items-center self-start my-4 mx-4' role='link'>
+                    <span className='text-2xl text-emerald-600 font-bold dark:text-slate-300 dark:font-medium'>castforecast</span>
                 </button>
                 <button
                     onClick={toggleMobileMenu}
@@ -29,7 +23,7 @@ const Header = () => {
                         viewBox='0 0 24 24'
                         strokeWidth='1.5'
                         stroke='currentColor'
-                        className='w-6 h-6 dark:stroke-gray-200'>
+                        className='w-6 h-6 dark:stroke-slate-200'>
                         <path
                             strokeLinecap='round'
                             strokeLinejoin='round'
@@ -46,7 +40,7 @@ const Header = () => {
                     <li className='w-full'>
                         <button
                             id='homeLink'
-                            className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 sm:hover:backdrop-brightness-100 sm:hover:text-emerald-600 dark:text-gray-200 dark:hover:backdrop-brightness-110 dark:sm:hover:backdrop-brightness-100'
+                            className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 sm:hover:backdrop-brightness-100 sm:hover:text-emerald-600 dark:text-slate-200 dark:hover:backdrop-brightness-110 dark:sm:hover:backdrop-brightness-100'
                             role='link'>
                             Home
                         </button>
@@ -54,13 +48,14 @@ const Header = () => {
                     <li className='w-full'>
                         <button
                             id='demoLink'
-                            className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 sm:hover:backdrop-brightness-100 sm:hover:text-emerald-600 dark:text-gray-200 dark:hover:backdrop-brightness-110 dark:sm:hover:backdrop-brightness-100'
+                            className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 sm:hover:backdrop-brightness-100 sm:hover:text-emerald-600 dark:text-slate-200 dark:hover:backdrop-brightness-110 dark:sm:hover:backdrop-brightness-100'
                             role='link'>
                             weather
                         </button>
                     </li>
                     <li className='w-full'>
                         <button
+                            onClick={toggleLightMode}
                             type='button'
                             id='themeBtn'
                             className='w-full px-4 py-2 hover:backdrop-brightness-95 sm:hover:backdrop-brightness-100 dark:hover:backdrop-brightness-110 dark:sm:hover:backdrop-brightness-100 group'>
@@ -69,7 +64,7 @@ const Header = () => {
                                 fill='none'
                                 viewBox='0 0 24 24'
                                 strokeWidth='1.5'
-                                className='w-6 h-6 stroke-black sm:group-hover:stroke-emerald-600'>
+                                className='w-6 h-6 stroke-black dark:stroke-slate-200 sm:group-hover:stroke-emerald-600'>
                                 <title>light screen theme</title>
                                 <path
                                     strokeLinecap='round'
@@ -82,7 +77,7 @@ const Header = () => {
                 </menu>
             </nav>
         </header>
-    );
-};
+    )
+}
 
-export default Header;
+export default Header
