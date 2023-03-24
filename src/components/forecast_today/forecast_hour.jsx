@@ -6,7 +6,7 @@ const ForecastHour = ({ hour, temp, wind, precip }) => {
     temp = Math.round(temp)
     wind = Math.round(wind)
     return (
-        <li className='flex flex-col items-center justify-center text-sm p-4 md:bg-white/75 md:shadow-md md:rounded-lg md:p-9 dark:md:bg-white/10'>
+        <li className='flex flex-col flex-shrink-0 items-center justify-center text-sm px-4 md:w-24 md:bg-white/75 md:shadow-md md:rounded-lg dark:md:bg-white/10'>
             <p className='mb-2'>{hour}</p>
             <p className='text-2xl relative md:text-3xl'>{temp}<span className='absolute'>&deg;</span></p>
             <p>{wind}mph</p>
