@@ -12,6 +12,10 @@ function App() {
     const [forecast, setForecast] = useState()
     const [lightMode, setLightMode] = useState(true)
 
+    function updateForecast(){
+        
+    }
+
     function toggleLightMode() {
         lightMode == true ? setLightMode(false) : setLightMode(true)
     }

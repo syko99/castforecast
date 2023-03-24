@@ -4,7 +4,6 @@
 
 const WeatherConverter = (() => {
     function skyStatus(currentHour, cloudCoverPercentage) {
-        console.log(currentHour);
         let status;
         (currentHour > 5 && currentHour < 18)
             ? (status = 'sunny')
