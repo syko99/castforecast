@@ -11,6 +11,7 @@ const Day = (forecast) => {
     let temps = forecast.data.temps
     let winds = forecast.data.winds
     let precips = forecast.data.precips //precipitation chance %
+    let clouds = forecast.data.clouds
     let maxTemp = forecast.data.maxTemp
     let minTemp = forecast.data.minTemp
 
@@ -21,11 +22,13 @@ const Day = (forecast) => {
             let temp = temps[i]
             let wind = winds[i]
             let precip = precips[i]
+            let cloudCover = clouds[i]
             hourlyForecast.push({
                 hour: hour,
                 temp: temp,
                 wind: wind,
                 precip: precip,
+                cloudCover: cloudCover,
             })
         }
         return hourlyForecast
@@ -61,11 +64,11 @@ const Day = (forecast) => {
     }
 
     function getWindAvg() {
-        let windAvg = 0;
+        let windAvg = 0
         for (let speed of winds) {
             windAvg += speed
         }
-        return (windAvg / winds.length)
+        return windAvg / winds.length
     }
 
     function getPrecips() {
@@ -73,11 +76,15 @@ const Day = (forecast) => {
     }
 
     function getPrecipAvg() {
-        let precipAvg = 0;
+        let precipAvg = 0
         for (let chance of precips) {
             precipAvg += chance
         }
-        return (precipAvg / precips.length)
+        return precipAvg / precips.length
+    }
+
+    function getCloudCover() {
+        return clouds
     }
 
     return {
@@ -92,6 +99,7 @@ const Day = (forecast) => {
         getPrecipAvg,
         getMaxTemp,
         getMinTemp,
+        getCloudCover,
     }
 }
 
