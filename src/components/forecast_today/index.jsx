@@ -1,9 +1,6 @@
 import { useState } from 'react'
 import ForecastHour from './forecast_hour'
 
-import arrowLeftIcon from '../../assets/images/arrow_left.svg'
-import arrowRightIcon from '../../assets/images/arrow_right.svg'
-
 const ForecastToday = ({ forecastToday, forecastTmrw }) => {
     let currentHour = new Date().getHours()
     let forecast = forecastToday
