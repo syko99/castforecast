@@ -4,7 +4,7 @@ const Header = ({toggleLightMode}) => {
     const [mobileMenuActive, setMobileMenuActive] = useState(false)
 
     function toggleMobileMenu() {
-        mobileMenuActive == true ? setMobileMenuActive(false) : setMobileMenuActive(true)
+        mobileMenuActive === true ? setMobileMenuActive(false) : setMobileMenuActive(true)
     }
 
     return (
@@ -34,7 +34,7 @@ const Header = ({toggleLightMode}) => {
                 <menu
                     id='navMenu'
                     className={
-                        `${mobileMenuActive == true ? ' ' : ' hidden '}` +
+                        `${mobileMenuActive === true ? ' ' : ' hidden '}` +
                         'flex flex-col w-11/12 mb-4 rounded-md bg-white shadow-md my-auto md:font-medium md:flex md:flex-row md:p-0 md:w-auto md:bg-transparent md:shadow-none dark:bg-gray-500 dark:md:bg-transparent'
                     }>
                     <li className='w-full'>

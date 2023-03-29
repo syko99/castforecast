@@ -2,7 +2,7 @@ import raindropIMG from '../../assets/images/raindrop.svg'
 
 const ForecastDay = ({ date, wind, precip, maxTemp, minTemp }) => {
     return (
-        <div className='grid grid-cols-5 place-items-start'>
+        <div className='grid grid-cols-5 place-items-start items-center'>
             <p className='col-span-2'>{date}</p>
             <p className='text-sm'>{wind}mph</p>
             <p className='text-sm flex items-center'>

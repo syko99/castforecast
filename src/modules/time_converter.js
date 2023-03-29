@@ -9,30 +9,31 @@
 const TimeConverter = (() => {
     function dayOfWeekStr(day) {
         let dayOfWeek
-        day == 0
+        day === 0
             ? (dayOfWeek = 'sunday')
-            : day == 1
+            : day === 1
             ? (dayOfWeek = 'monday')
-            : day == 2
+            : day === 2
             ? (dayOfWeek = 'tuesday')
-            : day == 3
+            : day === 3
             ? (dayOfWeek = 'wednesday')
-            : day == 4
+            : day === 4
             ? (dayOfWeek = 'thursday')
-            : day == 5
+            : day === 5
             ? (dayOfWeek = 'friday')
-            : day == 6
+            : day === 6
             ? (dayOfWeek = 'saturday')
             : (dayOfWeek = '')
         return dayOfWeek
     }
 
     function standardTimeStr(hour) {
+        hour = Number(hour)
         ++hour
         let suffix = 'am'
-        if (hour == 12) {
+        if (hour === 12) {
             suffix = 'pm'
-        } else if (hour == 24) {
+        } else if (hour === 24) {
             hour -= 12
         } else if (hour > 12) {
             hour -= 12

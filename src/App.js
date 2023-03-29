@@ -12,12 +12,12 @@ function App() {
     const [forecast, setForecast] = useState()
     const [lightMode, setLightMode] = useState(true)
 
-    function updateForecast(){
-        // WORK HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    }
+    // function updateForecast(){
+    //     // WORK HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // }
 
     function toggleLightMode() {
-        lightMode == true ? setLightMode(false) : setLightMode(true)
+        lightMode === true ? setLightMode(false) : setLightMode(true)
     }
 
     useEffect(() => {
