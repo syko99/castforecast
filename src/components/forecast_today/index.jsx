@@ -20,6 +20,7 @@ const ForecastToday = ({ forecastToday, forecastTmrw }) => {
     return (
         <div className='w-full overflow-x-hidden md:col-span-3'>
             <ul className='w-full h-full flex rounded-lg bg-white/75 backdrop-blur-lg shadow-md overflow-x-auto relative
+             scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-400
              md:p-0 md:gap-4 md:bg-transparent md:shadow-none dark:bg-white/10 dark:text-slate-300 dark:md:bg-transparent'>
                 {hourComponents}
             </ul>

@@ -12,7 +12,6 @@ import Week from './week'
 const WeatherAPI = (() => {
     let latitude = '44.97997'
     let longitude = '-93.26384'
-    let locationName = {}
 
     function getAPI() {
         let API_URL =
@@ -74,17 +73,8 @@ const WeatherAPI = (() => {
             city = location.city
             territory = location.territory
         }
-        setLocationName(city, territory)
     }
 
-    function setLocationName(_city, _territory) {
-        locationName.city = _city
-        locationName.territory = _territory
-    }
-
-    function getLocationName() {
-        return locationName
-    }
 
     return {
         updateCoords,
