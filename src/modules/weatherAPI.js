@@ -1,6 +1,7 @@
 /**
  * Module to grab weather data from API: {@link https://open-meteo.com}
- *
+ * Default coordinates to Minneapolis, MN
+ * 
  * @function getForecast()
  * @returns {Week}
  */
@@ -9,14 +10,22 @@ import Day from './day'
 import Week from './week'
 
 const WeatherAPI = (() => {
-    let API_URL =
-        'https://api.open-meteo.com/v1/forecast?latitude=44.94&longitude=-93.09&hourly=temperature_2m,precipitation_probability,cloudcover,windspeed_10m&daily=temperature_2m_max,temperature_2m_min&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago'
+    let latitude = '44.98'
+    let longitude = '-93.26'
 
+    function getAPI() {
+        let API_URL =
+            `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}` +
+            `&hourly=temperature_2m,precipitation_probability,cloudcover,windspeed_10m&daily=temperature_2m_max,temperature_2m_min` +
+            `&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago`
+
+        return API_URL
+    }
 
     async function getForecast() {
         let week = Week()
         try {
-            let request = await fetch(API_URL)
+            let request = await fetch(getAPI())
             let response = await request.json()
 
             let responseHours = Array.from(response.hourly.time)
@@ -37,8 +46,8 @@ const WeatherAPI = (() => {
                 dailyForecast.data.winds = responseWinds.slice(i * 24, i * 24 + 24)
                 dailyForecast.data.precips = responsePrecips.slice(i * 24, i * 24 + 24)
                 dailyForecast.data.clouds = responseClouds.slice(i * 24, i * 24 + 24)
-                dailyForecast.data.maxTemp = responseMaxTemp.slice(i, i+1)
-                dailyForecast.data.minTemp = responseMinTemp.slice(i, i+1)
+                dailyForecast.data.maxTemp = responseMaxTemp.slice(i, i + 1)
+                dailyForecast.data.minTemp = responseMinTemp.slice(i, i + 1)
                 week.addDay(Day(dailyForecast))
             }
         } catch (error) {
@@ -47,7 +56,13 @@ const WeatherAPI = (() => {
         return week
     }
 
+    function updateCoords(lat, long) {
+        latitude = lat
+        longitude = long
+    }
+
     return {
+        updateCoords,
         getForecast,
     }
 })()
