@@ -1,7 +1,7 @@
 import IconConverter from '../../modules/icon_converter'
 
-const WeatherIcon = ({ forecast }) => {
-    let icon = IconConverter.setIcon(forecast.hour, forecast.precip, forecast.cloudCover)
+const WeatherIcon = ({ hour, precip, cloudCover }) => {
+    let icon = IconConverter.setIcon(hour, precip, cloudCover)
 
     return <img src={icon} alt='weather icon' />
 }
