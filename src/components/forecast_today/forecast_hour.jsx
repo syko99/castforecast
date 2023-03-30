@@ -10,7 +10,7 @@ const ForecastHour = ({ hourForecast }) => {
     let wind = Math.round(hourForecast.wind)
     let precip = hourForecast.precip
     return (
-        <li className='flex flex-col flex-shrink-0 items-center justify-center gap-1 text-sm px-4 md:w-24 md:bg-white/75 md:shadow-md md:rounded-lg dark:md:bg-white/10'>
+        <li className='flex flex-col flex-shrink-0 items-center justify-center gap-1 text-sm p-4 md:w-24 md:bg-white/75 md:shadow-md md:rounded-lg dark:md:bg-white/10'>
             <p>{hour}</p>
             <div className='w-8 h-8'><WeatherIcon hour={hourForecast.hour} precip={precip} cloudCover={hourForecast.cloudCover}/></div>
             <p className='text-2xl relative md:text-3xl'>{temp}<span className='absolute'>&deg;</span></p>
