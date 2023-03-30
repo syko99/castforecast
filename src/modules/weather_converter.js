@@ -4,22 +4,26 @@
 
 const WeatherConverter = (() => {
     function skyStatus(currentHour, cloudCoverPercentage) {
-        let status;
-        (currentHour > 5 && currentHour < 18)
-            ? (status = 'sunny')
-            : (status = cloudStatus(cloudCoverPercentage))
+        let status
+        if (currentHour > 5 && currentHour < 18 && cloudCoverPercentage < 25) {
+            status = 'sunny'
+        } else {
+            status = cloudStatus(cloudCoverPercentage)
+        }
         return status
     }
 
     function cloudStatus(cloudCoverPercentage) {
-        let status = ''
-        cloudCoverPercentage > 25
-            ? (status = 'partially cloudy')
-            : cloudCoverPercentage > 50
-            ? (status = 'mostly cloudy')
-            : cloudCoverPercentage > 75
-            ? (status = 'cloudy')
-            : (status = 'clear skies')
+        let status = 'clear skies'
+        if (cloudCoverPercentage > 25) {
+            status = 'partially cloudy'
+        }
+        if (cloudCoverPercentage > 50) {
+            status = 'mostly cloudy'
+        }
+        if (cloudCoverPercentage > 75) {
+            status = 'cloudy'
+        }
         return status
     }
 

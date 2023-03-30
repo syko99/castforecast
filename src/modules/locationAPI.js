@@ -1,4 +1,0 @@
-/**
- * search and geolocation functions
- */
-

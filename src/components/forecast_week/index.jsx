@@ -1,10 +1,9 @@
-import { useState } from "react"
 import TimeConverter from "../../modules/time_converter"
 import ForecastDay from "./forecast_day"
 
 const ForecastWeek = ({forecast}) => {
     
-    const [dailyForecast] = useState(forecast.getDays())
+    let dailyForecast = forecast.getDays()
 
     const dayComponents = dailyForecast.map((day) => {
         let date = TimeConverter.dayOfWeekStr(day.getDate().getDay())
