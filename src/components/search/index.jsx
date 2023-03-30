@@ -9,8 +9,9 @@ const CitySearch = ({ updateForecast }) => {
         setResults(array)
     }
 
-    async function getCityInfo(cityName) {
-        cityName = String(cityName).replace(' ', '%20')
+    async function getCityInfo(event) {
+        event.preventDefault()
+        let cityName = String(event.target['0'].value).replace(' ', '%20')
         let API_URL = `https://geocoding-api.open-meteo.com/v1/search?name=${cityName}`
         let request = await fetch(API_URL)
         let response = await request.json()
@@ -42,10 +43,9 @@ const CitySearch = ({ updateForecast }) => {
     return (
         <div className='flex items-end gap-2 relative'>
             <form
-                action='#'
                 className='w-full'
                 method='GET'
-                onSubmit={(e) => getCityInfo(e.target['0'].value)}>
+                onSubmit={getCityInfo}>
                 <input
                     type='text'
                     className='w-full bg-transparent p-1 border-b border-slate-400 focus:outline-none focus:border-emerald-500'
@@ -55,7 +55,7 @@ const CitySearch = ({ updateForecast }) => {
                 />
             </form>
             <LocationFinder updateForecast={updateForecast} />
-            <ul className='absolute top-10 left-0 w-full rounded-lg shadow-lg overflow-hidden z-10 bg-white dark:bg-slate-600 dark:text-slate-300'>
+            <ul className='absolute top-10 left-0 w-full rounded-lg shadow-lg overflow-hidden z-10 bg-white text-sm md:text-base md:w-[200%] dark:bg-slate-600 dark:text-slate-300'>
                 {resultBtns}
             </ul>
         </div>

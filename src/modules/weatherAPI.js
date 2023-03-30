@@ -1,7 +1,7 @@
 /**
  * Module to grab weather data from API: {@link https://open-meteo.com}
  * Default coordinates to Minneapolis, MN
- * 
+ *
  * @function getForecast()
  * @returns {Week}
  */
@@ -10,9 +10,9 @@ import Day from './day'
 import Week from './week'
 
 const WeatherAPI = (() => {
-    let latitude = '44.98'
-    let longitude = '-93.26'
-    let locationName = {city: 'minneapolis', territory: 'Minnesota'}
+    let latitude = '44.97997'
+    let longitude = '-93.26384'
+    let locationName = {}
 
     function getAPI() {
         let API_URL =
@@ -49,18 +49,31 @@ const WeatherAPI = (() => {
                 dailyForecast.data.clouds = responseClouds.slice(i * 24, i * 24 + 24)
                 dailyForecast.data.maxTemp = responseMaxTemp.slice(i, i + 1)
                 dailyForecast.data.minTemp = responseMinTemp.slice(i, i + 1)
-                week.setLocation(getLocationName())
                 week.addDay(Day(dailyForecast))
             }
+            week.setLocation(await fetchLocationName(latitude, longitude))
         } catch (error) {
             console.error(error)
         }
         return week
     }
 
-    function updateCoords(lat, long, city, territory) {
+    async function fetchLocationName(lat, long) {
+        let reverseGeoApi = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${long}&localityLanguage=en`
+        let request = await fetch(reverseGeoApi)
+        let response = await request.json()
+        let cityName = response.city ? response.city : response.locality
+        return { city: cityName, territory: response.principalSubdivision }
+    }
+
+    async function updateCoords(lat, long, city = null, territory = null) {
         latitude = lat
         longitude = long
+        if (city === null || territory === null) {
+            let location = await fetchLocationName(lat, long)
+            city = location.city
+            territory = location.territory
+        }
         setLocationName(city, territory)
     }
 

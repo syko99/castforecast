@@ -10,13 +10,19 @@ import PartialCloudRainNightIcon from '../assets/images/weather_icons/partial_cl
 const IconConverter = (() => {
     function setIcon(hour, precip, cloudCover) {
         let icon = SunIcon
-        if (hour >= 18) {icon = MoonIcon}
-        if (cloudCover >= 75) {icon = CloudIcon}
-        if (cloudCover >= 75 && precip >= 25){icon = CloudRainIcon}
-        if (cloudCover < 75 && hour < 18) {icon = PartialCloudDayIcon}
-        if (cloudCover < 75 && hour >= 18) {icon = PartialCloudNightIcon}
-        if (cloudCover < 75 && hour < 18 && precip >= 25) {icon = PartialCloudRainDayIcon}
-        if (cloudCover < 75 && hour > 18 && precip >= 25) {icon = PartialCloudRainNightIcon}
+        if (hour > 5 && hour <= 18) {
+            if (cloudCover > 25) {icon = PartialCloudDayIcon}
+            if (cloudCover > 25 && precip >= 50) {icon = PartialCloudRainDayIcon}
+            if (cloudCover > 75) {icon = CloudIcon}
+            if (cloudCover > 75 && precip >= 50) {icon = CloudRainIcon}
+        }
+        if (hour <= 5 || hour > 18) {
+            icon = MoonIcon
+            if (cloudCover > 25) {icon = PartialCloudNightIcon}
+            if (cloudCover > 25 && precip >= 50) {icon = PartialCloudRainNightIcon}
+            if (cloudCover > 75) {icon = CloudIcon}
+            if (cloudCover > 75 && precip >= 50) {icon = CloudRainIcon}
+        }
         return icon
     }
 
