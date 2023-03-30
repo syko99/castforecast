@@ -9,14 +9,11 @@ const ForecastToday = ({ forecastToday, forecastTmrw }) => {
         .concat(forecastTmrw.getHourlyForecast().slice(0, currentHour))
     const [hourlyForecast] = useState(forecast)
 
-    const hourComponents = hourlyForecast.map((hour) => {
+    const hourComponents = hourlyForecast.map((hourForecast) => {
         return (
             <ForecastHour
-                hour={hour.hour}
-                temp={hour.temp}
-                wind={hour.wind}
-                precip={hour.precip}
-                key={hour.hour}
+                hourForecast = {hourForecast}
+                key={hourForecast.hour}
             />
         )
     })
