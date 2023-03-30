@@ -12,8 +12,8 @@ function App() {
     const [forecast, setForecast] = useState()
     const [lightMode, setLightMode] = useState(true)
 
-    async function updateForecast(coords) {
-        WeatherAPI.updateCoords(coords.lat, coords.long)
+    async function updateForecast(lat, long, city, territory) {
+        WeatherAPI.updateCoords(lat, long, city, territory)
         let week = await WeatherAPI.getForecast()
         setForecast(week)
     }
@@ -41,7 +41,7 @@ function App() {
                 <main className='flex-grow p-2 max-w-screen-xl mx-auto md:p-4'>
                     {typeof forecast != 'undefined' ? (
                         <div className='grid gap-2 h-full md:grid-cols-4 md:grid-rows-3 md:gap-4'>
-                            <ForecastNow forecast={forecast.getDay(0)} updateForecast={updateForecast} />
+                            <ForecastNow forecast={forecast.getDay(0)} updateForecast={updateForecast} locationName={forecast.getLocation()} />
                             <ForecastToday
                                 forecastToday={forecast.getDay(0)}
                                 forecastTmrw={forecast.getDay(1)}

@@ -6,7 +6,7 @@ const LocationFinder = ({updateForecast}) => {
 
     function requestLocation(){
         navigator.geolocation.getCurrentPosition(response => {
-            updateForecast({'lat':response.coords.latitude, 'long':response.coords.longitude})
+            updateForecast(response.coords.latitude, response.coords.longitude)
         })
     }
     

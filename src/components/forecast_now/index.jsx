@@ -2,7 +2,9 @@ import WeatherConverter from '../../modules/weather_converter'
 import CitySearch from '../search'
 import WeatherIcon from '../weather_icon'
 
-const ForecastNow = ({ forecast, updateForecast }) => {
+const ForecastNow = ({ forecast, updateForecast, locationName }) => {
+    let city = locationName.city
+    let territory = locationName.territory
     let currentHour = new Date().getHours()
     let currentForecast = forecast.getHourlyForecast()[currentHour]
     let temp = Math.round(currentForecast.temp)
@@ -18,7 +20,7 @@ const ForecastNow = ({ forecast, updateForecast }) => {
         <div className='w-32 mt-8'><WeatherIcon hour={currentHour} precip={currentForecast.precip} cloudCover={currentForecast.cloudCover}/></div>
             <p className='text-7xl relative md:text-8xl'>{temp}<span className="absolute">&deg;</span></p>
             <p className='mb-4'>{cloudCover}</p>
-            <p>City Name</p>
+            <p>{city}, {territory}</p>
             <p>
                 <span>{maxTemp}&deg;</span> / <span>{minTemp}&deg;</span>
             </p>

@@ -12,6 +12,7 @@ import Week from './week'
 const WeatherAPI = (() => {
     let latitude = '44.98'
     let longitude = '-93.26'
+    let locationName = {city: 'minneapolis', territory: 'Minnesota'}
 
     function getAPI() {
         let API_URL =
@@ -48,6 +49,7 @@ const WeatherAPI = (() => {
                 dailyForecast.data.clouds = responseClouds.slice(i * 24, i * 24 + 24)
                 dailyForecast.data.maxTemp = responseMaxTemp.slice(i, i + 1)
                 dailyForecast.data.minTemp = responseMinTemp.slice(i, i + 1)
+                week.setLocation(getLocationName())
                 week.addDay(Day(dailyForecast))
             }
         } catch (error) {
@@ -56,9 +58,19 @@ const WeatherAPI = (() => {
         return week
     }
 
-    function updateCoords(lat, long) {
+    function updateCoords(lat, long, city, territory) {
         latitude = lat
         longitude = long
+        setLocationName(city, territory)
+    }
+
+    function setLocationName(_city, _territory) {
+        locationName.city = _city
+        locationName.territory = _territory
+    }
+
+    function getLocationName() {
+        return locationName
     }
 
     return {
