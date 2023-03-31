@@ -87,6 +87,14 @@ const Day = (forecast) => {
         return clouds
     }
 
+    function getCloudCoverAvg() {
+        let cloudCoverAvg = 0
+        for (let percent of clouds) {
+            cloudCoverAvg += percent
+        }
+        return cloudCoverAvg / clouds.length
+    }
+
     return {
         getHourlyForecast,
         getCurrentTemp,
@@ -100,6 +108,7 @@ const Day = (forecast) => {
         getMaxTemp,
         getMinTemp,
         getCloudCover,
+        getCloudCoverAvg,
     }
 }
 
