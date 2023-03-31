@@ -36,7 +36,7 @@ function App() {
 
     return (
         <div id='colorTheme' className={lightMode === true ? '' : 'dark'}>
-            <div className='flex flex-col bg-slate-200 mx-auto h-screen dark:bg-slate-800'>
+            <div className='flex flex-col bg-sky-200 mx-auto min-h-screen md:h-screen dark:bg-slate-800'>
                 <Header toggleLightMode={toggleLightMode} />
                 <main className='flex-grow p-2 max-w-screen-xl mx-auto md:p-4'>
                     {typeof forecast != 'undefined' ? (

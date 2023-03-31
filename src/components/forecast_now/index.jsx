@@ -14,7 +14,7 @@ const ForecastNow = ({ forecast, updateForecast, locationName }) => {
 
     return (
         <div className='p-4 flex flex-col justify-center items-center capitalize rounded-lg 
-        md:bg-white/75 md:shadow-md md:col-span-1 md:row-span-3 md:justify-start dark:text-slate-300 
+        md:bg-white/75 md:col-span-1 md:row-span-3 md:justify-start dark:text-slate-300 
         dark:md:bg-white/10'>
         <CitySearch updateForecast={updateForecast} />
         <div className='w-32 mt-8'><WeatherIcon hour={currentHour} precip={currentForecast.precip} cloudCover={currentForecast.cloudCover}/></div>

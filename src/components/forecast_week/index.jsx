@@ -1,14 +1,14 @@
-import TimeConverter from "../../modules/time_converter"
-import ForecastDay from "./forecast_day"
+import TimeConverter from '../../modules/time_converter'
+import ForecastDay from './forecast_day'
 
-const ForecastWeek = ({forecast}) => {
-    
+const ForecastWeek = ({ forecast }) => {
     let dailyForecast = forecast.getDays()
 
     const dayComponents = dailyForecast.map((day) => {
         let date = TimeConverter.dayOfWeekStr(day.getDate().getDay())
         let wind = Math.round(day.getWindAvg())
         let precip = Math.round(day.getPrecipAvg())
+        let clouds = Math.round(day.getCloudCoverAvg())
         let maxTemp = Math.round(day.getMaxTemp())
         let minTemp = Math.round(day.getMinTemp())
 
@@ -17,6 +17,7 @@ const ForecastWeek = ({forecast}) => {
                 date={date}
                 precip={precip}
                 wind={wind}
+                clouds={clouds}
                 maxTemp={maxTemp}
                 minTemp={minTemp}
                 key={date}
@@ -25,7 +26,9 @@ const ForecastWeek = ({forecast}) => {
     })
 
     return (
-        <div className='w-full p-4 flex flex-col gap-2 justify-start capitalize rounded-lg bg-white/75 backdrop-blur-lg shadow-md md:col-span-3 md:row-span-2 dark:bg-white/10 dark:text-slate-300'>
+        <div className='w-full p-4 flex flex-col gap-4 justify-start capitalize rounded-lg bg-white/75 backdrop-blur-lg
+        md:col-span-3 md:row-span-2 md:p-0 md:flex-row md:row-wrap md:overflow-x-auto md:bg-transparent md:justify-between
+        scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-transparent dark:text-slate-300'>
             {dayComponents}
         </div>
     )

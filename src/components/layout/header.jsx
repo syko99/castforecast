@@ -40,7 +40,7 @@ const Header = ({toggleLightMode}) => {
                     <li className='w-full'>
                         <button
                             id='homeLink'
-                            className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 md:hover:backdrop-brightness-100 md:hover:text-emerald-500 dark:text-slate-200 dark:hover:backdrop-brightness-110 dark:md:hover:backdrop-brightness-100'
+                            className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 md:hover:backdrop-brightness-100 md:hover:text-slate-400 dark:text-slate-200 dark:hover:backdrop-brightness-110 dark:md:hover:backdrop-brightness-100'
                             role='link'>
                             Home
                         </button>
@@ -48,7 +48,7 @@ const Header = ({toggleLightMode}) => {
                     <li className='w-full'>
                         <button
                             id='demoLink'
-                            className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 md:hover:backdrop-brightness-100 md:hover:text-emerald-500 dark:text-slate-200 dark:hover:backdrop-brightness-110 dark:md:hover:backdrop-brightness-100'
+                            className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 md:hover:backdrop-brightness-100 md:hover:text-slate-400 dark:text-slate-200 dark:hover:backdrop-brightness-110 dark:md:hover:backdrop-brightness-100'
                             role='link'>
                             weather
                         </button>
@@ -64,7 +64,7 @@ const Header = ({toggleLightMode}) => {
                                 fill='none'
                                 viewBox='0 0 24 24'
                                 strokeWidth='1.5'
-                                className='w-6 h-6 stroke-black dark:stroke-slate-200 md:group-hover:stroke-emerald-500'>
+                                className='w-6 h-6 stroke-black dark:stroke-slate-200 md:group-hover:stroke-slate-400'>
                                 <title>light screen theme</title>
                                 <path
                                     strokeLinecap='round'
