@@ -36,7 +36,7 @@ function App() {
 
     return (
         <div id='colorTheme' className={lightMode === true ? '' : 'dark'}>
-            <div className='flex flex-col bg-sky-200 mx-auto dark:bg-slate-800'>
+            <div className='flex flex-col bg-sky-200 mx-auto min-h-screen dark:bg-slate-800'>
                 <Header toggleLightMode={toggleLightMode} />
                 <main className='flex-grow p-2 max-w-screen-xl mx-auto md:p-4'>
                     {typeof forecast != 'undefined' ? (
@@ -44,7 +44,8 @@ function App() {
                             <ForecastNow forecast={forecast.getDay(0)} updateForecast={updateForecast} locationName={forecast.getLocation()} />
                             <ForecastToday
                                 forecastToday={forecast.getDay(0)}
-                                forecastTmrw={forecast.getDay(1)}
+                                forecastTmrw={forecast.getDay(1)} 
+                                lightMode={lightMode}
                             />
                             <ForecastWeek forecast={forecast} />{' '}
                         </div>
