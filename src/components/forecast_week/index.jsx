@@ -27,7 +27,7 @@ const ForecastWeek = ({ forecast }) => {
 
     return (
         <div className='w-full p-4 flex flex-col gap-4 justify-start capitalize rounded-lg bg-white/75 backdrop-blur-lg
-        md:col-span-3 md:row-span-2 md:flex-row md:row-wrap md:overflow-x-auto md:justify-between
+        md:col-span-3 md:row-span-1 md:flex-row md:row-wrap md:overflow-x-auto md:justify-between
         scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-transparent dark:text-slate-300 dark:md:bg-white/10'>
             {dayComponents}
         </div>

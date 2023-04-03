@@ -36,11 +36,11 @@ function App() {
 
     return (
         <div id='colorTheme' className={lightMode === true ? '' : 'dark'}>
-            <div className='flex flex-col bg-sky-200 mx-auto min-h-screen md:h-screen dark:bg-slate-800'>
+            <div className='flex flex-col bg-sky-200 mx-auto dark:bg-slate-800'>
                 <Header toggleLightMode={toggleLightMode} />
                 <main className='flex-grow p-2 max-w-screen-xl mx-auto md:p-4'>
                     {typeof forecast != 'undefined' ? (
-                        <div className='grid gap-2 h-full md:grid-cols-4 md:grid-rows-3 md:gap-4'>
+                        <div className='grid gap-2 md:grid-cols-4 md:grid-rows-3 md:gap-4'>
                             <ForecastNow forecast={forecast.getDay(0)} updateForecast={updateForecast} locationName={forecast.getLocation()} />
                             <ForecastToday
                                 forecastToday={forecast.getDay(0)}
