@@ -27,7 +27,7 @@ const ForecastToday = ({ forecastToday, forecastTmrw, lightMode }) => {
     const chartOptions = {
         maintainAspectRatio: false,
         scales: {
-            y: { grid: { display: false } },
+            y: { grid: { display: false }, ticks: { stepSize: 2 } },
         },
     }
 

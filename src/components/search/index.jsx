@@ -51,6 +51,7 @@ const CitySearch = ({ updateForecast }) => {
                     className='w-full bg-transparent p-1 border-b border-slate-400 focus:outline-none focus:border-emerald-500'
                     placeholder='Enter city name...'
                     onKeyUp={() => updateResults([])}
+                    autoComplete='none'
                     required
                 />
             </form>
