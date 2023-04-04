@@ -44,7 +44,7 @@ function App() {
                 <Header toggleLightMode={toggleLightMode} changeActivePage={changeActivePage} />
                 <main className='flex-grow p-2 max-w-screen-xl mx-auto md:p-4'>
                     {activePage === 'about' ? (
-                        <About />
+                        <About changeActivePage={changeActivePage} />
                     ) : (<Forecast forecast={forecast} updateForecast={updateForecast} lightMode={lightMode}/>)}
 
                 </main>

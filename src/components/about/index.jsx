@@ -1,21 +1,24 @@
-const About = () => {
+import mockupMobile from '../../assets/images/about/mockup_mobile.png'
+import mockupLaptop from '../../assets/images/about/mockup_laptop.png'
+
+const About = ({changeActivePage}) => {
     return (
-        <div className='grid grid-cols-2 grid-rows-2'>
-            <div className='col-span-1'>
-                <h1 className="text-5xl font-bold">castforecast</h1>
+        <div className='flex flex-col h-[80vh] text-center justify-center md:grid md:grid-cols-2 md:grid-rows-2'>
+            <div className='mb-8 md:col-span-1 md:flex md:items-end'>
+                <h1 className='text-5xl md:text-6xl font-black self-end dark:text-slate-200'>castforecast</h1>
             </div>
-            <div className="hidden md:block md:col-span-1 md:row-span-2">
-                Picture
-            </div>
-            <div className="col-span-1">
-                <p>
-                    Our app is designed to give you quick and easy access to the latest weather
-                    information for your area. With just a few clicks, you can check the current
-                    temperature, see the forecast for the next few days, and get a sense of the
-                    overall weather patterns in your region. Our app is user-friendly and intuitive,
-                    so you don't need to be a meteorologist to understand the data.
+            <div className='hidden md:flex md:items-center md:gap-4 md:col-span-1 md:row-span-2 md:self-center'>
+                <div className='w-3/4'><img src={mockupLaptop} alt="app preview" /></div>
+                <div className='w-1/4'><img src={mockupMobile} alt="app preview" /></div>
+                </div>
+            <div className='flex flex-col items-center md:items-start gap-4 md:col-span-1'>
+                <p className='text-lg font-medium max-w-prose md:text-start dark:text-slate-300'>
+                    Our app is user-friendly and intuitive, so you don't need to be a meteorologist
+                    to understand the data. With just a few clicks, you can see the forecast for the
+                    next few days and get a sense of the overall weather patterns in your area.
                 </p>
-            </div >
+                <button onClick={()=>changeActivePage('forecast')} className='bg-emerald-600 py-2 px-8 text-white rounded-lg'>See Weather</button>
+            </div>
         </div>
     )
 }
