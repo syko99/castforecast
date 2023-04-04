@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const Header = ({toggleLightMode}) => {
+const Header = ({toggleLightMode, changeActivePage}) => {
     const [mobileMenuActive, setMobileMenuActive] = useState(false)
 
     function toggleMobileMenu() {
@@ -39,18 +39,20 @@ const Header = ({toggleLightMode}) => {
                     }>
                     <li className='w-full'>
                         <button
-                            id='homeLink'
+                            id='demoLink'
                             className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 md:hover:backdrop-brightness-100 md:hover:text-slate-400 dark:text-slate-200 dark:hover:backdrop-brightness-110 dark:md:hover:backdrop-brightness-100'
-                            role='link'>
-                            Home
+                            role='link'
+                            onClick={()=>changeActivePage('forecast')}>
+                            Weather
                         </button>
                     </li>
                     <li className='w-full'>
                         <button
-                            id='demoLink'
+                            id='homeLink'
                             className='w-full px-4 py-2 text-start capitalize hover:backdrop-brightness-95 md:hover:backdrop-brightness-100 md:hover:text-slate-400 dark:text-slate-200 dark:hover:backdrop-brightness-110 dark:md:hover:backdrop-brightness-100'
-                            role='link'>
-                            weather
+                            role='link'
+                            onClick={()=>changeActivePage('about')}>
+                            About
                         </button>
                     </li>
                     <li className='w-full'>
