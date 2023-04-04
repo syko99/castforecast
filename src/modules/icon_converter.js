@@ -11,15 +11,15 @@ const IconConverter = (() => {
     function setIcon(hour, precip, cloudCover) {
         let icon = SunIcon
         if (hour > 5 && hour <= 18) {
-            if (cloudCover > 25) {icon = PartialCloudDayIcon}
-            if (cloudCover > 25 && precip >= 50) {icon = PartialCloudRainDayIcon}
+            if (cloudCover > 35) {icon = PartialCloudDayIcon}
+            if (cloudCover > 35 && precip >= 50) {icon = PartialCloudRainDayIcon}
             if (cloudCover > 75) {icon = CloudIcon}
             if (cloudCover > 75 && precip >= 50) {icon = CloudRainIcon}
         }
         if (hour <= 5 || hour > 18) {
             icon = MoonIcon
-            if (cloudCover > 25) {icon = PartialCloudNightIcon}
-            if (cloudCover > 25 && precip >= 50) {icon = PartialCloudRainNightIcon}
+            if (cloudCover > 35) {icon = PartialCloudNightIcon}
+            if (cloudCover > 35 && precip >= 50) {icon = PartialCloudRainNightIcon}
             if (cloudCover > 75) {icon = CloudIcon}
             if (cloudCover > 75 && precip >= 50) {icon = CloudRainIcon}
         }

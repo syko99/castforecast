@@ -3,14 +3,14 @@ import WeatherAPI from './modules/weatherAPI'
 //components
 import Header from './components/layout/header'
 import Footer from './components/layout/footer'
-import ForecastNow from './components/forecast_now'
-import ForecastToday from './components/forecast_today'
-import ForecastWeek from './components/forecast_week'
+import About from './components/about'
 import { useEffect, useState } from 'react'
+import Forecast from './components/forecast'
 
 function App() {
     const [forecast, setForecast] = useState()
     const [lightMode, setLightMode] = useState(true)
+    const [activePage, setActivePage] = useState('weather')
 
     async function updateForecast(lat, long, city, territory) {
         WeatherAPI.updateCoords(lat, long, city, territory)
@@ -34,23 +34,19 @@ function App() {
         getForecast()
     }, [])
 
+    function changeActivePage(pageName) {
+        pageName === 'weather' ? setActivePage('weather') : setActivePage('about')
+    }
+
     return (
         <div id='colorTheme' className={lightMode === true ? '' : 'dark'}>
-            <div className='flex flex-col bg-sky-200 mx-auto min-h-screen md:h-screen dark:bg-slate-800'>
-                <Header toggleLightMode={toggleLightMode} />
+            <div className='flex flex-col bg-sky-200 mx-auto min-h-screen dark:bg-slate-800'>
+                <Header toggleLightMode={toggleLightMode} changeActivePage={changeActivePage} />
                 <main className='flex-grow p-2 max-w-screen-xl mx-auto md:p-4'>
-                    {typeof forecast != 'undefined' ? (
-                        <div className='grid gap-2 h-full md:grid-cols-4 md:grid-rows-3 md:gap-4'>
-                            <ForecastNow forecast={forecast.getDay(0)} updateForecast={updateForecast} locationName={forecast.getLocation()} />
-                            <ForecastToday
-                                forecastToday={forecast.getDay(0)}
-                                forecastTmrw={forecast.getDay(1)}
-                            />
-                            <ForecastWeek forecast={forecast} />{' '}
-                        </div>
-                    ) : (
-                        ''
-                    )}
+                    {activePage === 'about' ? (
+                        <About changeActivePage={changeActivePage} />
+                    ) : (<Forecast forecast={forecast} updateForecast={updateForecast} lightMode={lightMode}/>)}
+
                 </main>
                 <Footer />
             </div>
