@@ -10,7 +10,7 @@ import Forecast from './components/forecast'
 function App() {
     const [forecast, setForecast] = useState()
     const [lightMode, setLightMode] = useState(true)
-    const [activePage, setActivePage] = useState('forecast')
+    const [activePage, setActivePage] = useState('weather')
 
     async function updateForecast(lat, long, city, territory) {
         WeatherAPI.updateCoords(lat, long, city, territory)
@@ -35,7 +35,7 @@ function App() {
     }, [])
 
     function changeActivePage(pageName) {
-        pageName === 'forecast' ? setActivePage('forecast') : setActivePage('about')
+        pageName === 'weather' ? setActivePage('weather') : setActivePage('about')
     }
 
     return (

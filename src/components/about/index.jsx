@@ -17,7 +17,7 @@ const About = ({changeActivePage}) => {
                     to understand the data. With just a few clicks, you can see the forecast for the
                     next few days and get a sense of the overall weather patterns in your area.
                 </p>
-                <button onClick={()=>changeActivePage('forecast')} className='bg-emerald-600 py-2 px-8 text-white rounded-lg'>See Weather</button>
+                <button onClick={()=>changeActivePage('weather')} className='bg-emerald-600 py-2 px-8 text-white rounded-lg'>See Weather</button>
             </div>
         </div>
     )
